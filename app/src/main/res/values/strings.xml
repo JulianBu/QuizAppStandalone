@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">QuizApp</string>
+    <string name="app_name">CarQuiz</string>
     <string name="image_res_login">Image for login/register</string>
     <string name="register">Register</string>
     <string name="login">Login</string>
