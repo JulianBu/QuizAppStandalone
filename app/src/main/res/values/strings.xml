@@ -1,17 +1,27 @@
 <resources>
+    <!--  General  -->
     <string name="app_name">CarQuiz</string>
+
+    <!--  Login / Register  -->
     <string name="image_res_login">Image for login/register</string>
-    <string name="register">Register</string>
     <string name="login">Login</string>
+    <string name="register">Register</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="switch_to_login">Already a User? Login here</string>
     <string name="switch_to_register">New here? Register here</string>
+
+    <!--  Main Menu  -->
     <string name="welcome_user">Welcome %1$s!</string>
     <string name="quiz_menu_card">ITS QUIZ TIME</string>
     <string name="score_menu_card">CHECK YOUR SCORE</string>
     <string name="insert_question_menu_card">INSERT QUESTION</string>
     <string name="insert_question">Insert Question</string>
+    <string name="img_manta_desc">Manta</string>
+    <string name="img_cliors_desc">Clio RS</string>
+    <string name="img_porsche_desc">Porsche 911 Emblem</string>
+
+    <!--  Insert Question  -->
     <string name="your_question">Your Question</string>
     <string name="your_Answer">Your Answer</string>
     <string name="wrong_answer_1">Wrong answer 1</string>
@@ -19,26 +29,16 @@
     <string name="wrong_answer_3">Wrong answer 3</string>
     <string name="severtiy_hint">Severtiy: Number from 1 to 3</string>
     <string name="send_question">Send question</string>
-    <string name="img_manta_desc">Manta</string>
-    <string name="img_cliors_desc">Clio RS</string>
-    <string name="img_porsche_desc">Porsche 911 Emblem</string>
-    <string name="title_activity_main2">MainActivity</string>
+
+    <!--  check user score  -->
     <string name="check_user_score">%1$s, your score is</string>
     <string name="user_score">%1$s</string>
 
-    <!-- Strings for Quiz Activity  -->
+    <!-- Quiz Activity  -->
     <string name="question">%1$s</string>
     <string name="answer_1">%1$s</string>
     <string name="answer_2">%1$s</string>
     <string name="answer_3">%1$s</string>
     <string name="answer_4">%1$s</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="title_activity_test">TestActivity</string>
 </resources>

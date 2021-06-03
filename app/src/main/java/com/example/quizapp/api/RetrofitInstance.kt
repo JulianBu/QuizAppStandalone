@@ -1,6 +1,5 @@
 package com.example.quizapp.api
 
-import com.example.quizapp.util.Constants.Companion.BASE_URL2
 import com.example.quizapp.util.Constants.Companion.BASE_URL
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
