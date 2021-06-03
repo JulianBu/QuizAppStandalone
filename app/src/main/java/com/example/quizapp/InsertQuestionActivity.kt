@@ -17,8 +17,6 @@ class InsertQuestionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_insert_question)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setTitle("insert question")
 
         val repository = Repository()
         val viewModelFactory = MainViewModelFactory(repository)

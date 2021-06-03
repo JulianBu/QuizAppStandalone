@@ -33,6 +33,7 @@
     <!--  check user score  -->
     <string name="check_user_score">%1$s, your score is</string>
     <string name="user_score">%1$s</string>
+    <string name="random_picture">random picture</string>
 
     <!-- Quiz Activity  -->
     <string name="question">%1$s</string>

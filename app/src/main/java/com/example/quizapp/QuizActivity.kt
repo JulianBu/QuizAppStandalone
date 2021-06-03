@@ -17,11 +17,10 @@ import com.example.quizapp.util.GlobalValues
 class QuizActivity : AppCompatActivity() {
 
     private lateinit var viewModel: MainViewModel
-    private var rightAnswer = ""
-    private var questionString = ""
-    private var curSeverity = 0
-    private val questionList = ArrayList<Button>()
-
+    private var rightAnswer: String = ""
+    private var questionString: String = ""
+    private var curSeverity: Int = 0
+    private val questionList: ArrayList<Button> = ArrayList<Button>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +29,6 @@ class QuizActivity : AppCompatActivity() {
         val repository = Repository()
         val viewModelFactory = MainViewModelFactory(repository)
         viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
-
 
         val question = findViewById<TextView>(R.id.tv_question)
         val answer1 = findViewById<Button>(R.id.btn_answer_a)
