@@ -20,15 +20,14 @@
             android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".InsertQuestionActivity"
-            android:theme="@style/NoActionBarTheme"
+            android:theme="@style/ActionBarTheme"
             android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".UserScoreActivity"
-            android:theme="@style/NoActionBarTheme"
             android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".QuizActivity"
-            android:theme="@style/NoActionBarTheme"
+            android:theme="@style/ActionBarTheme"
             android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".MainMenuActivity"
