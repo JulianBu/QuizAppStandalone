@@ -16,7 +16,9 @@ class UserScoreActivity : AppCompatActivity() {
         setContentView(R.layout.activity_user_score)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = ""
-        supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#e5e5e2")))
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#ffffff")))
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_ios_24)
+        supportActionBar?.elevation = 0.0f
 
         val pic1 = R.drawable.cliofront
         val pic2 = R.drawable.fahrwerk

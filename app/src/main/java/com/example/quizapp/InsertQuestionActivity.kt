@@ -1,5 +1,7 @@
 package com.example.quizapp
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -17,6 +19,12 @@ class InsertQuestionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_insert_question)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Insert Question"
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#ffffff")))
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_ios_24)
+        supportActionBar?.elevation = 0.0f
 
         val repository = Repository()
         val viewModelFactory = MainViewModelFactory(repository)

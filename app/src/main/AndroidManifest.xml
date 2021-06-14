@@ -27,7 +27,6 @@
             android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".QuizActivity"
-            android:theme="@style/ActionBarTheme"
             android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".MainMenuActivity"
