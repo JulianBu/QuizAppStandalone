@@ -7,13 +7,10 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
-import androidx.lifecycle.ViewModelProvider
 import com.example.quizapp.model.Question
-import com.example.quizapp.repository.Repository
 
 class InsertQuestionActivity : AppCompatActivity() {
 
-    private lateinit var viewModel: MainViewModel
     private lateinit var questionValues: ArrayList<AppCompatEditText>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,10 +22,6 @@ class InsertQuestionActivity : AppCompatActivity() {
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#ffffff")))
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_ios_24)
         supportActionBar?.elevation = 0.0f
-
-        val repository = Repository()
-        val viewModelFactory = MainViewModelFactory(repository)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
 
         val questionInputfield = findViewById<AppCompatEditText>(R.id.et_question)
         val answerInputfield = findViewById<AppCompatEditText>(R.id.et_question_answer)
@@ -64,15 +57,7 @@ class InsertQuestionActivity : AppCompatActivity() {
                 && questionSevertiy.isNotEmpty()) {
                 val newQuestion = Question(null, question, answer, wrongAnswer1, wrongAnswer2, wrongAnswer3, questionSevertiy.toInt())
                 // send request to insert question
-                viewModel.postInsertQuestion(newQuestion)
-                viewModel.insertQuestionResponse.observe(this, { response ->
-                    if (response.isSuccessful) {
-                        Toast.makeText(this, "Your Question has been saved.", Toast.LENGTH_SHORT).show()
-                        clearList()
-                    } else {
-                        Toast.makeText(this, "Something went wrong. ${response.errorBody().toString()}", Toast.LENGTH_SHORT).show()
-                    }
-                })
+
             }
 
 
