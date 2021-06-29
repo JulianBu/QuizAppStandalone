@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.quizapp.util.Constants
 import com.example.quizapp.util.GlobalValues
 
 class QuizActivity : AppCompatActivity() {
@@ -16,7 +17,8 @@ class QuizActivity : AppCompatActivity() {
     private var rightAnswer: String = ""
     private var questionString: String = ""
     private var curSeverity: Int = 0
-    private val questionList: ArrayList<Button> = ArrayList<Button>()
+    private val answerList: ArrayList<Button> = ArrayList<Button>()
+    // private lateinit var questionList: ArrayList<Question>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,10 +35,12 @@ class QuizActivity : AppCompatActivity() {
         val answer2 = findViewById<Button>(R.id.btn_answer_b)
         val answer3 = findViewById<Button>(R.id.btn_answer_c)
         val answer4 = findViewById<Button>(R.id.btn_answer_d)
-        questionList.add(answer1)
-        questionList.add(answer2)
-        questionList.add(answer3)
-        questionList.add(answer4)
+        answerList.add(answer1)
+        answerList.add(answer2)
+        answerList.add(answer3)
+        answerList.add(answer4)
+
+        refresh(question)
 
         // Buttons abhören
         answer1.setOnClickListener {
@@ -46,6 +50,7 @@ class QuizActivity : AppCompatActivity() {
                 Toast.makeText(this, "Your Answer is right!", Toast.LENGTH_SHORT).show()
 
                 Handler(Looper.getMainLooper()).postDelayed({
+                    refresh(question)
                     answer1.setBackgroundResource(R.drawable.button_action)
                 }, 3000)
             } else {
@@ -53,6 +58,7 @@ class QuizActivity : AppCompatActivity() {
                 Toast.makeText(this, "Your Answer is wrong!", Toast.LENGTH_SHORT).show()
 
                 Handler(Looper.getMainLooper()).postDelayed({
+                    refresh(question)
                     answer1.setBackgroundResource(R.drawable.button_action)
                 }, 3000)
             }
@@ -65,6 +71,7 @@ class QuizActivity : AppCompatActivity() {
                 Toast.makeText(this, "Your Answer is right!", Toast.LENGTH_SHORT).show()
 
                 Handler(Looper.getMainLooper()).postDelayed({
+                    refresh(question)
                     answer2.setBackgroundResource(R.drawable.button_action)
                 }, 3000)
             } else {
@@ -72,6 +79,7 @@ class QuizActivity : AppCompatActivity() {
                 Toast.makeText(this, "Your Answer is wrong!", Toast.LENGTH_SHORT).show()
 
                 Handler(Looper.getMainLooper()).postDelayed({
+                    refresh(question)
                     answer2.setBackgroundResource(R.drawable.button_action)
                 }, 3000)
             }
@@ -84,6 +92,7 @@ class QuizActivity : AppCompatActivity() {
                 Toast.makeText(this, "Your Answer is right!", Toast.LENGTH_SHORT).show()
 
                 Handler(Looper.getMainLooper()).postDelayed({
+                    refresh(question)
                     answer3.setBackgroundResource(R.drawable.button_action)
                 }, 3000)
             } else {
@@ -91,6 +100,7 @@ class QuizActivity : AppCompatActivity() {
                 Toast.makeText(this, "Your Answer is wrong!", Toast.LENGTH_SHORT).show()
 
                 Handler(Looper.getMainLooper()).postDelayed({
+                    refresh(question)
                     answer3.setBackgroundResource(R.drawable.button_action)
                 }, 3000)
             }
@@ -103,6 +113,7 @@ class QuizActivity : AppCompatActivity() {
                 Toast.makeText(this, "Your Answer is right!", Toast.LENGTH_SHORT).show()
 
                 Handler(Looper.getMainLooper()).postDelayed({
+                    refresh(question)
                     answer4.setBackgroundResource(R.drawable.button_action)
                 }, 3000)
             } else {
@@ -110,6 +121,7 @@ class QuizActivity : AppCompatActivity() {
                 Toast.makeText(this, "Your Answer is wrong!", Toast.LENGTH_SHORT).show()
 
                 Handler(Looper.getMainLooper()).postDelayed({
+                    refresh(question)
                     answer4.setBackgroundResource(R.drawable.button_action)
                 }, 3000)
             }
@@ -122,7 +134,15 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun refresh(newQuestion: TextView) {
-
+        val question = Constants.getQuestion()
+        val randomNumbers = (0..3).shuffled()
+        newQuestion.setText(question.question)
+        curSeverity = question.severity
+        rightAnswer = question.answer
+        answerList[randomNumbers[0]].setText(question.answer)
+        answerList[randomNumbers[1]].setText(question.wrongAnswer_1)
+        answerList[randomNumbers[2]].setText(question.wrongAnswer_2)
+        answerList[randomNumbers[3]].setText(question.wrongAnswer_3)
     }
 
     override fun onSupportNavigateUp(): Boolean {
