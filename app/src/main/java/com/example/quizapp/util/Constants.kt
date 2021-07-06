@@ -118,7 +118,7 @@ class Constants {
                 )
                 questionList.add(q10)
 
-                return questionList[((0..questionList.size)-1).random()]
+                return questionList[((0 until questionList.size).random())]
             }
         }
 }

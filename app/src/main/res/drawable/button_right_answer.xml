@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:anroid="http://schemas.android.com/apk/res/android" anroid:shape="rectangle">
+    <solid anroid:color="#3BCC31" />
+    <corners anroid:radius="8dip" />
+</shape>
+<!--
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_pressed="true" >
         <shape android:shape="rectangle"  >
@@ -16,4 +21,4 @@
             <corners android:radius="8dip" />
         </shape>
     </item>
-</selector>
+</selector>-->

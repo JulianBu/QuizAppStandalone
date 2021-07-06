@@ -9,16 +9,15 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.example.quizapp.util.Constants
 import com.example.quizapp.util.GlobalValues
 
 class QuizActivity : AppCompatActivity() {
 
     private var rightAnswer: String = ""
-    private var questionString: String = ""
     private var curSeverity: Int = 0
-    private val answerList: ArrayList<Button> = ArrayList<Button>()
-    // private lateinit var questionList: ArrayList<Question>
+    private val answerList: ArrayList<TextView> = ArrayList<TextView>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,10 +30,10 @@ class QuizActivity : AppCompatActivity() {
         supportActionBar?.elevation = 0.0f
 
         val question = findViewById<TextView>(R.id.tv_question)
-        val answer1 = findViewById<Button>(R.id.btn_answer_a)
-        val answer2 = findViewById<Button>(R.id.btn_answer_b)
-        val answer3 = findViewById<Button>(R.id.btn_answer_c)
-        val answer4 = findViewById<Button>(R.id.btn_answer_d)
+        val answer1 = findViewById<TextView>(R.id.btn_answer_a)
+        val answer2 = findViewById<TextView>(R.id.btn_answer_b)
+        val answer3 = findViewById<TextView>(R.id.btn_answer_c)
+        val answer4 = findViewById<TextView>(R.id.btn_answer_d)
         answerList.add(answer1)
         answerList.add(answer2)
         answerList.add(answer3)
@@ -45,84 +44,84 @@ class QuizActivity : AppCompatActivity() {
         // Buttons abhören
         answer1.setOnClickListener {
             if (answer1.text.equals(rightAnswer)) {
-                answer1.setBackgroundResource(R.drawable.button_right_answer)
+                answer1.background = ContextCompat.getDrawable(this, R.drawable.button_right_answer)
                 updateUserScore(curSeverity)
                 Toast.makeText(this, "Your Answer is right!", Toast.LENGTH_SHORT).show()
 
                 Handler(Looper.getMainLooper()).postDelayed({
                     refresh(question)
-                    answer1.setBackgroundResource(R.drawable.button_action)
+                    answer1.background = ContextCompat.getDrawable(this, R.drawable.button_action)
                 }, 3000)
             } else {
-                answer1.setBackgroundResource(R.drawable.button_wrong_answer)
+                answer1.background = ContextCompat.getDrawable(this, R.drawable.button_wrong_answer)
                 Toast.makeText(this, "Your Answer is wrong!", Toast.LENGTH_SHORT).show()
 
                 Handler(Looper.getMainLooper()).postDelayed({
                     refresh(question)
-                    answer1.setBackgroundResource(R.drawable.button_action)
+                    answer1.background = ContextCompat.getDrawable(this, R.drawable.button_action)
                 }, 3000)
             }
         }
 
         answer2.setOnClickListener {
             if (answer2.text.equals(rightAnswer)) {
-                answer2.setBackgroundResource(R.drawable.button_right_answer)
+                answer2.background = ContextCompat.getDrawable(this, R.drawable.button_right_answer)
                 updateUserScore(curSeverity)
                 Toast.makeText(this, "Your Answer is right!", Toast.LENGTH_SHORT).show()
 
                 Handler(Looper.getMainLooper()).postDelayed({
                     refresh(question)
-                    answer2.setBackgroundResource(R.drawable.button_action)
+                    answer2.background = ContextCompat.getDrawable(this, R.drawable.button_action)
                 }, 3000)
             } else {
-                answer2.setBackgroundResource(R.drawable.button_wrong_answer)
+                answer2.background = ContextCompat.getDrawable(this, R.drawable.button_wrong_answer)
                 Toast.makeText(this, "Your Answer is wrong!", Toast.LENGTH_SHORT).show()
 
                 Handler(Looper.getMainLooper()).postDelayed({
                     refresh(question)
-                    answer2.setBackgroundResource(R.drawable.button_action)
+                    answer2.background = ContextCompat.getDrawable(this, R.drawable.button_action)
                 }, 3000)
             }
         }
 
         answer3.setOnClickListener {
             if (answer3.text.equals(rightAnswer)) {
-                answer3.setBackgroundResource(R.drawable.button_right_answer)
+                answer3.background = ContextCompat.getDrawable(this, R.drawable.button_right_answer)
                 updateUserScore(curSeverity)
                 Toast.makeText(this, "Your Answer is right!", Toast.LENGTH_SHORT).show()
 
                 Handler(Looper.getMainLooper()).postDelayed({
                     refresh(question)
-                    answer3.setBackgroundResource(R.drawable.button_action)
+                    answer3.background = ContextCompat.getDrawable(this, R.drawable.button_action)
                 }, 3000)
             } else {
-                answer3.setBackgroundResource(R.drawable.button_wrong_answer)
+                answer3.background = ContextCompat.getDrawable(this, R.drawable.button_wrong_answer)
                 Toast.makeText(this, "Your Answer is wrong!", Toast.LENGTH_SHORT).show()
 
                 Handler(Looper.getMainLooper()).postDelayed({
                     refresh(question)
-                    answer3.setBackgroundResource(R.drawable.button_action)
+                    answer3.background = ContextCompat.getDrawable(this, R.drawable.button_action)
                 }, 3000)
             }
         }
 
         answer4.setOnClickListener {
             if (answer4.text.equals(rightAnswer)) {
-                answer4.setBackgroundResource(R.drawable.button_right_answer)
+                answer4.background = ContextCompat.getDrawable(this, R.drawable.button_right_answer)
                 updateUserScore(curSeverity)
                 Toast.makeText(this, "Your Answer is right!", Toast.LENGTH_SHORT).show()
 
                 Handler(Looper.getMainLooper()).postDelayed({
                     refresh(question)
-                    answer4.setBackgroundResource(R.drawable.button_action)
+                    answer4.background = ContextCompat.getDrawable(this, R.drawable.button_action)
                 }, 3000)
             } else {
-                answer4.setBackgroundResource(R.drawable.button_wrong_answer)
+                answer3.background = ContextCompat.getDrawable(this, R.drawable.button_wrong_answer)
                 Toast.makeText(this, "Your Answer is wrong!", Toast.LENGTH_SHORT).show()
 
                 Handler(Looper.getMainLooper()).postDelayed({
                     refresh(question)
-                    answer4.setBackgroundResource(R.drawable.button_action)
+                    answer4.background = ContextCompat.getDrawable(this, R.drawable.button_action)
                 }, 3000)
             }
         }
@@ -130,7 +129,6 @@ class QuizActivity : AppCompatActivity() {
 
     private fun updateUserScore(severity: Int) {
         GlobalValues.currentScore = GlobalValues.currentScore?.plus((severity * 10))
-
     }
 
     private fun refresh(newQuestion: TextView) {
