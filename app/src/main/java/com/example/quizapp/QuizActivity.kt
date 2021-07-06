@@ -5,7 +5,6 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -45,6 +44,7 @@ class QuizActivity : AppCompatActivity() {
         // Buttons abhören
         answer1.setOnClickListener {
             if (answer1.text.equals(rightAnswer)) {
+                disableButtons()
                 answer1.background = ContextCompat.getDrawable(this, R.drawable.button_right_answer)
                 updateUserScore(curSeverity)
                 Toast.makeText(this, "Your Answer is right!", Toast.LENGTH_SHORT).show()
@@ -52,20 +52,24 @@ class QuizActivity : AppCompatActivity() {
                 Handler(Looper.getMainLooper()).postDelayed({
                     refresh(question)
                     answer1.background = ContextCompat.getDrawable(this, R.drawable.button_action)
+                    enableButtons()
                 }, 3000)
             } else {
+                disableButtons()
                 answer1.background = ContextCompat.getDrawable(this, R.drawable.button_wrong_answer)
                 Toast.makeText(this, "Your Answer is wrong!", Toast.LENGTH_SHORT).show()
 
                 Handler(Looper.getMainLooper()).postDelayed({
                     refresh(question)
                     answer1.background = ContextCompat.getDrawable(this, R.drawable.button_action)
+                    enableButtons()
                 }, 3000)
             }
         }
 
         answer2.setOnClickListener {
             if (answer2.text.equals(rightAnswer)) {
+                disableButtons()
                 answer2.background = ContextCompat.getDrawable(this, R.drawable.button_right_answer)
                 updateUserScore(curSeverity)
                 Toast.makeText(this, "Your Answer is right!", Toast.LENGTH_SHORT).show()
@@ -73,20 +77,24 @@ class QuizActivity : AppCompatActivity() {
                 Handler(Looper.getMainLooper()).postDelayed({
                     refresh(question)
                     answer2.background = ContextCompat.getDrawable(this, R.drawable.button_action)
+                    enableButtons()
                 }, 3000)
             } else {
+                disableButtons()
                 answer2.background = ContextCompat.getDrawable(this, R.drawable.button_wrong_answer)
                 Toast.makeText(this, "Your Answer is wrong!", Toast.LENGTH_SHORT).show()
 
                 Handler(Looper.getMainLooper()).postDelayed({
                     refresh(question)
                     answer2.background = ContextCompat.getDrawable(this, R.drawable.button_action)
+                    enableButtons()
                 }, 3000)
             }
         }
 
         answer3.setOnClickListener {
             if (answer3.text.equals(rightAnswer)) {
+                disableButtons()
                 answer3.background = ContextCompat.getDrawable(this, R.drawable.button_right_answer)
                 updateUserScore(curSeverity)
                 Toast.makeText(this, "Your Answer is right!", Toast.LENGTH_SHORT).show()
@@ -94,20 +102,24 @@ class QuizActivity : AppCompatActivity() {
                 Handler(Looper.getMainLooper()).postDelayed({
                     refresh(question)
                     answer3.background = ContextCompat.getDrawable(this, R.drawable.button_action)
+                    enableButtons()
                 }, 3000)
             } else {
+                disableButtons()
                 answer3.background = ContextCompat.getDrawable(this, R.drawable.button_wrong_answer)
                 Toast.makeText(this, "Your Answer is wrong!", Toast.LENGTH_SHORT).show()
 
                 Handler(Looper.getMainLooper()).postDelayed({
                     refresh(question)
                     answer3.background = ContextCompat.getDrawable(this, R.drawable.button_action)
+                    enableButtons()
                 }, 3000)
             }
         }
 
         answer4.setOnClickListener {
             if (answer4.text.equals(rightAnswer)) {
+                disableButtons()
                 answer4.background = ContextCompat.getDrawable(this, R.drawable.button_right_answer)
                 updateUserScore(curSeverity)
                 Toast.makeText(this, "Your Answer is right!", Toast.LENGTH_SHORT).show()
@@ -115,14 +127,17 @@ class QuizActivity : AppCompatActivity() {
                 Handler(Looper.getMainLooper()).postDelayed({
                     refresh(question)
                     answer4.background = ContextCompat.getDrawable(this, R.drawable.button_action)
+                    enableButtons()
                 }, 3000)
             } else {
-                answer3.background = ContextCompat.getDrawable(this, R.drawable.button_wrong_answer)
+                disableButtons()
+                answer4.background = ContextCompat.getDrawable(this, R.drawable.button_wrong_answer)
                 Toast.makeText(this, "Your Answer is wrong!", Toast.LENGTH_SHORT).show()
 
                 Handler(Looper.getMainLooper()).postDelayed({
                     refresh(question)
                     answer4.background = ContextCompat.getDrawable(this, R.drawable.button_action)
+                    enableButtons()
                 }, 3000)
             }
         }
@@ -130,6 +145,18 @@ class QuizActivity : AppCompatActivity() {
 
     private fun updateUserScore(severity: Int) {
         GlobalValues.currentScore = GlobalValues.currentScore?.plus((severity * 10))
+    }
+
+    private fun disableButtons() {
+        for (item in answerList) {
+            item.isEnabled = false
+        }
+    }
+
+    private fun enableButtons() {
+        for (item in answerList) {
+            item.isEnabled = true
+        }
     }
 
     private fun refresh(newQuestion: TextView) {
