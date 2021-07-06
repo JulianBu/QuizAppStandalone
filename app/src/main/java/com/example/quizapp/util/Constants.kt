@@ -5,9 +5,17 @@ import com.example.quizapp.model.Question
 class Constants {
         companion object {
             const val BASE_URL = "http://10.0.2.2:8080"
-            fun getQuestion(): Question {
-                val questionList = ArrayList<Question>()
+            private val questionList = ArrayList<Question>()
 
+            fun getQuestion(): Question {
+                return questionList[((0 until questionList.size).random())]
+            }
+
+            fun setQuestion(newQuestion: Question) {
+                questionList.add(newQuestion)
+            }
+
+            fun initQuestions() {
                 val q1 = Question(
                     1,
                     "In welchem Jahr kam der Toyota GT-86 auf den deutschen Markt?",
@@ -117,8 +125,10 @@ class Constants {
                     2
                 )
                 questionList.add(q10)
+            }
 
-                return questionList[((0 until questionList.size).random())]
+            fun clearList() {
+                questionList.clear()
             }
         }
 }

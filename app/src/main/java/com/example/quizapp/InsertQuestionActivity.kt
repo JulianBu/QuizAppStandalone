@@ -8,6 +8,8 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
 import com.example.quizapp.model.Question
+import com.example.quizapp.util.Constants
+import kotlin.random.Random
 
 class InsertQuestionActivity : AppCompatActivity() {
 
@@ -55,9 +57,10 @@ class InsertQuestionActivity : AppCompatActivity() {
                 && wrongAnswer2.isNotEmpty()
                 && wrongAnswer3.isNotEmpty()
                 && questionSevertiy.isNotEmpty()) {
-                val newQuestion = Question(null, question, answer, wrongAnswer1, wrongAnswer2, wrongAnswer3, questionSevertiy.toInt())
-                // send request to insert question
-
+                val newQuestion = Question(Random.nextLong(), question, answer, wrongAnswer1, wrongAnswer2, wrongAnswer3, questionSevertiy.toInt())
+                Constants.setQuestion(newQuestion)
+                Toast.makeText(this, "Question has been saved", Toast.LENGTH_SHORT).show()
+                clearList()
             }
 
 
