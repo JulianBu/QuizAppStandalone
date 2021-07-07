@@ -24,7 +24,7 @@ class QuizActivity : AppCompatActivity() {
         Constants.initQuestions()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = ""
+        supportActionBar?.title = "current score: " + GlobalValues.currentScore
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#ffffff")))
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_ios_24)
         supportActionBar?.elevation = 0.0f

@@ -7,13 +7,14 @@
     android:gravity="center"
     android:orientation="vertical"
     android:theme="@style/NoActionBarTheme"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/manta"
+        android:src="@drawable/manta1080x2160"
         android:contentDescription="@string/img_manta_desc"/>
 
     <LinearLayout
@@ -28,6 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/app_name"
+            android:elevation="12dp"
             android:gravity="center"
             android:textSize="50sp"
             android:textStyle="bold"
@@ -39,9 +41,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
-            android:backgroundTint="#e5e5e5ee"
+            android:backgroundTint="#E8E8E8ef"
             app:cardCornerRadius="15dp"
-            app:cardElevation="5dp">
+            app:cardElevation="8dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -55,7 +57,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="start"
+                    android:gravity="center"
                     android:text="@string/register"
                     android:textSize="30sp"/>
 
