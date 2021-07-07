@@ -18,7 +18,7 @@
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
         <item name="colorPrimary">#4F3267</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimaryVariant">@color/white</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="android:fontFamily">@font/baloobhaijaan_regular</item>
     </style>
@@ -28,7 +28,7 @@
         <item name="android:windowActionBar">true</item>
         <item name="android:windowNoTitle">true</item>
         <item name="colorPrimary">#4F3267</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimaryVariant">@color/white</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="android:fontFamily">@font/baloobhaijaan_regular</item>
     </style>

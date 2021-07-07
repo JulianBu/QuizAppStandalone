@@ -4,6 +4,8 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Window
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
@@ -17,6 +19,12 @@ class InsertQuestionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
+        getWindow().setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN)
+
         setContentView(R.layout.activity_insert_question)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -44,12 +52,14 @@ class InsertQuestionActivity : AppCompatActivity() {
             val wrongAnswer3 = wrongAnswer3Inputfield.text.toString()
             val questionSevertiy = questionSevertiyInputfield.text.toString()
 
-            if (question.isEmpty()) Toast.makeText(this, "Please enter a question", Toast.LENGTH_SHORT).show()
-            if (answer.isEmpty()) Toast.makeText(this, "Please enter an answer", Toast.LENGTH_SHORT).show()
-            if (wrongAnswer1.isEmpty()) Toast.makeText(this, "Please enter a wrong Answer 1", Toast.LENGTH_SHORT).show()
-            if (wrongAnswer2.isEmpty()) Toast.makeText(this, "Please enter a wrong Answer 2", Toast.LENGTH_SHORT).show()
-            if (wrongAnswer3.isEmpty()) Toast.makeText(this, "Please enter a wrong Answer 3", Toast.LENGTH_SHORT).show()
-            if (questionSevertiy.isEmpty()) Toast.makeText(this, "Please enter a severtiy", Toast.LENGTH_SHORT).show()
+            when {
+                question.isEmpty() -> Toast.makeText(this, "Please enter a question", Toast.LENGTH_SHORT).show()
+                answer.isEmpty() -> Toast.makeText(this, "Please enter an answer", Toast.LENGTH_SHORT).show()
+                wrongAnswer1.isEmpty() -> Toast.makeText(this, "Please enter a wrong Answer 1", Toast.LENGTH_SHORT).show()
+                wrongAnswer2.isEmpty() -> Toast.makeText(this, "Please enter a wrong Answer 2", Toast.LENGTH_SHORT).show()
+                wrongAnswer3.isEmpty() -> Toast.makeText(this, "Please enter a wrong Answer 3", Toast.LENGTH_SHORT).show()
+                questionSevertiy.isEmpty() -> Toast.makeText(this, "Please enter a severtiy", Toast.LENGTH_SHORT).show()
+            }
 
             if (question.isNotEmpty()
                 && answer.isNotEmpty()
@@ -62,8 +72,6 @@ class InsertQuestionActivity : AppCompatActivity() {
                 Toast.makeText(this, "Question has been saved", Toast.LENGTH_SHORT).show()
                 clearList()
             }
-
-
         }
     }
 
